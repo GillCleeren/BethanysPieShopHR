@@ -26,7 +26,8 @@ namespace BethanysPieShopHRM.Server
             
             services.AddScoped<HttpClient>(s =>
             {
-                var client = new HttpClient { BaseAddress = new System.Uri("https://localhost:44340/") }; 
+                //var client = new HttpClient { BaseAddress = new System.Uri("https://localhost:44340/") }; 
+                var client = new HttpClient { BaseAddress = new System.Uri("https://bethanyspieshophrmapi.azurewebsites.net/") }; 
                 return client;
             });
 
