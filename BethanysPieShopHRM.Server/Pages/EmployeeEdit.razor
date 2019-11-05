@@ -14,6 +14,8 @@
             <ValidationSummary />
             <div class="form-group row">
                 <label for="lastName" class="col-sm-3">Last name: </label>
+                @*<input id="lastName" class="form-control col-sm-8" @bind-value="Employee.LastName" placeholder="Enter last name" />*@
+
                 <InputText id="lastName" class="form-control col-sm-8" @bind-Value="@Employee.LastName"  placeholder="Enter last name" @ref="LastNameInputText"></InputText>
                 <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => Employee.LastName)" />
             </div>

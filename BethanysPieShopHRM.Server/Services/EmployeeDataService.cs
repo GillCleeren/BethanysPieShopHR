@@ -7,7 +7,7 @@ using BethanysPieShopHRM.Shared;
 
 namespace BethanysPieShopHRM.Server.Services
 {
-    public class EmployeeDataService: IEmployeeDataService
+    public class EmployeeDataService : IEmployeeDataService
     {
         private readonly HttpClient _httpClient;
 
@@ -47,7 +47,7 @@ namespace BethanysPieShopHRM.Server.Services
         {
             var employeeJson =
                 new StringContent(JsonSerializer.Serialize(employee), Encoding.UTF8, "application/json");
-           
+
             await _httpClient.PutAsync("api/employee", employeeJson);
         }
 
