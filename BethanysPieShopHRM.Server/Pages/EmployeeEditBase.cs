@@ -28,7 +28,7 @@ namespace BethanysPieShopHRM.Server.Pages
 
         public InputText LastNameInputText { get; set; }
 
-        public Employee Employee { get; set; } = new Employee();
+        public EmployeeModel Employee { get; set; } = new EmployeeModel();
 
         //needed to bind to select to value
         protected string CountryId = string.Empty;
@@ -53,7 +53,7 @@ namespace BethanysPieShopHRM.Server.Pages
             if (employeeId == 0) //new employee is being created
             {
                 //add some defaults
-                Employee = new Employee { CountryId = 1, JobCategoryId = 1, BirthDate = DateTime.Now, JoinedDate = DateTime.Now };
+                Employee = new EmployeeModel { CountryId = 1, JobCategoryId = 1, BirthDate = DateTime.Now, JoinedDate = DateTime.Now };
             }
             else
             {

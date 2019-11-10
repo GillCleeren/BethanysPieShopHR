@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
+using System.Text;
 
 namespace BethanysPieShopHRM.Shared
 {
-    public class Employee
+    public class EmployeeModel
     {
         public int EmployeeId { get; set; }
         [Required]
@@ -41,32 +41,27 @@ namespace BethanysPieShopHRM.Shared
         public double Latitude { get; set; }
         public double Longitude { get; set; }
 
-        public IEnumerable<EmployeeBenefit> EmployeeBenefits { get; set; }
+        public bool ShowBenefits { get; set; }
+        public bool PremiumBenefits { get; set; }
 
-        public EmployeeModel ToModel()
+        public void UpdateEntity(Employee entity)
         {
-            return new EmployeeModel
-            {
-                EmployeeId = EmployeeId,
-                CountryId = CountryId,
-                MaritalStatus = MaritalStatus,
-                BirthDate = BirthDate,
-                City = City,
-                Email = Email,
-                FirstName = FirstName,
-                LastName = LastName,
-                Gender = Gender,
-                PhoneNumber = PhoneNumber,
-                Smoker = Smoker,
-                Street = Street,
-                Zip = Zip,
-                JobCategoryId = JobCategoryId,
-                Comment = Comment,
-                ExitDate = ExitDate,
-                JoinedDate = JoinedDate,
-                PremiumBenefits = EmployeeBenefits != null 
-                    && EmployeeBenefits.Any(b => b.Benefit.Premium)
-            };
+            entity.CountryId = CountryId;
+            entity.MaritalStatus = MaritalStatus;
+            entity.BirthDate = BirthDate;
+            entity.City = City;
+            entity.Email = Email;
+            entity.FirstName = FirstName;
+            entity.LastName = LastName;
+            entity.Gender = Gender;
+            entity.PhoneNumber = PhoneNumber;
+            entity.Smoker = Smoker;
+            entity.Street = Street;
+            entity.Zip = Zip;
+            entity.JobCategoryId = JobCategoryId;
+            entity.Comment = Comment;
+            entity.ExitDate = ExitDate;
+            entity.JoinedDate = JoinedDate;
         }
     }
 }

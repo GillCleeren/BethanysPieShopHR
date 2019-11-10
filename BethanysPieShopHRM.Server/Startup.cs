@@ -30,10 +30,10 @@ namespace BethanysPieShopHRM.Server
                 return client;
             });
 
-            //services.AddScoped<IEmployeeDataService, MockEmployeeDataService>();
             services.AddScoped<IEmployeeDataService, EmployeeDataService>();
             services.AddScoped<ICountryDataService, CountryDataService>();
             services.AddScoped<IJobCategoryDataService, JobCategoryDataService>();
+            services.AddScoped<IBenefitDataService, BenefitDataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

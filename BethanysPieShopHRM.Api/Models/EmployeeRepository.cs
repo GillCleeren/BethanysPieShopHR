@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using BethanysPieShopHRM.Shared;
+using Microsoft.EntityFrameworkCore;
 
 namespace BethanysPieShopHRM.Api.Models
 {
@@ -13,49 +14,39 @@ namespace BethanysPieShopHRM.Api.Models
             _appDbContext = appDbContext;
         }
 
-        public IEnumerable<Employee> GetAllEmployees()
+        public IEnumerable<EmployeeModel> GetAllEmployees()
         {
-            return _appDbContext.Employees;
+            return _appDbContext.Employees
+                .Include(e => e.EmployeeBenefits).ThenInclude(eb => eb.Benefit)
+                .Select(e => e.ToModel());
         }
 
-        public Employee GetEmployeeById(int employeeId)
+        public EmployeeModel GetEmployeeById(int employeeId)
         {
-            return _appDbContext.Employees.FirstOrDefault(c => c.EmployeeId == employeeId);
+            return _appDbContext.Employees
+                .FirstOrDefault(c => c.EmployeeId == employeeId)
+                .ToModel();
         }
 
-        public Employee AddEmployee(Employee employee)
+        public EmployeeModel AddEmployee(EmployeeModel employeeModel)
         {
-            var addedEntity = _appDbContext.Employees.Add(employee);
+            var newEmployee = new Employee();
+            employeeModel.UpdateEntity(newEmployee);
+            var addedEntity = _appDbContext.Employees.Add(newEmployee);
             _appDbContext.SaveChanges();
-            return addedEntity.Entity;
+            return addedEntity.Entity.ToModel();
         }
 
-        public Employee UpdateEmployee(Employee employee)
+        public EmployeeModel UpdateEmployee(EmployeeModel employeeModel)
         {
-            var foundEmployee = _appDbContext.Employees.FirstOrDefault(e => e.EmployeeId == employee.EmployeeId);
+            var foundEmployee = _appDbContext.Employees
+                .FirstOrDefault(e => e.EmployeeId == employeeModel.EmployeeId);
 
             if (foundEmployee != null)
             {
-                foundEmployee.CountryId = employee.CountryId;
-                foundEmployee.MaritalStatus = employee.MaritalStatus;
-                foundEmployee.BirthDate = employee.BirthDate;
-                foundEmployee.City = employee.City;
-                foundEmployee.Email = employee.Email;
-                foundEmployee.FirstName = employee.FirstName;
-                foundEmployee.LastName = employee.LastName;
-                foundEmployee.Gender = employee.Gender;
-                foundEmployee.PhoneNumber = employee.PhoneNumber;
-                foundEmployee.Smoker = employee.Smoker;
-                foundEmployee.Street = employee.Street;
-                foundEmployee.Zip = employee.Zip;
-                foundEmployee.JobCategoryId = employee.JobCategoryId;
-                foundEmployee.Comment = employee.Comment;
-                foundEmployee.ExitDate = employee.ExitDate;
-                foundEmployee.JoinedDate = employee.JoinedDate;
-
+                employeeModel.UpdateEntity(foundEmployee);
                 _appDbContext.SaveChanges();
-
-                return foundEmployee;
+                return foundEmployee.ToModel();
             }
 
             return null;

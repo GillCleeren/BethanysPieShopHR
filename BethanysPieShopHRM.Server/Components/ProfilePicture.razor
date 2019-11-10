@@ -1,0 +1,18 @@
+﻿<div class="profile">
+    <div class="profile-bg">
+        <img class="img-responsive" src="images/profilePicture.jpg" />
+    </div>
+    <div class="profile-picture">
+        <img class="img-responsive @CssClass account-photo" src="images/profilePicture.jpg" @onclick="@(e => CssClass = CssClass == "circle" ? null : "circle")" />
+    </div>
+</div>
+
+@code {
+    public string CssClass { get; set; } = "circle";
+
+    public void ProfileClick()
+    {
+        CssClass = CssClass == "circle" ? null : "circle";
+    }
+
+}

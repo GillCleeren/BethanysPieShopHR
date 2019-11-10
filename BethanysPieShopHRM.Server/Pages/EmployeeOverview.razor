@@ -22,20 +22,7 @@ else
         <tbody>
             @foreach (var employee in Employees)
             {
-                <tr>
-                    <td><img src="@($"https://gillcleerenpluralsight.blob.core.windows.net/person/{employee.EmployeeId}-small.jpg")" class="rounded-circle" /></td>
-                    <td>@employee.EmployeeId</td>
-                    <td>@employee.FirstName</td>
-                    <td>@employee.LastName</td>
-                    <td>
-                        <a href="@($"employeedetail/{employee.EmployeeId}")" class="btn btn-primary table-btn">
-                            <i class="fas fa-info-circle"></i>
-                        </a>
-                        <a href="@($"employeeedit/{employee.EmployeeId}")" class="btn btn-primary table-btn">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                    </td>
-                </tr>
+                <EmployeeRow Employee="@employee"></EmployeeRow>
             }
         </tbody>
     </table>

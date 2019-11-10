@@ -6,10 +6,10 @@ namespace BethanysPieShopHRM.Server.Services
 {
     public interface IEmployeeDataService
     {
-        Task<IEnumerable<Employee>> GetAllEmployees();
-        Task<Employee> GetEmployeeDetails(int employeeId);
-        Task<Employee> AddEmployee(Employee employee);
-        Task UpdateEmployee(Employee employee);
+        Task<IEnumerable<EmployeeModel>> GetAllEmployees();
+        Task<EmployeeModel> GetEmployeeDetails(int employeeId);
+        Task<EmployeeModel> AddEmployee(EmployeeModel employee);
+        Task UpdateEmployee(EmployeeModel employee);
         Task DeleteEmployee(int employeeId);
     }
 }

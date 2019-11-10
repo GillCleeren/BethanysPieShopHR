@@ -3,14 +3,7 @@
     <div class="sidebar-logo">
         <img class="img-responsive" id="logo" src="images/bethanylogo.png" />
     </div>
-    <div class="profile">
-        <div class="profile-bg">
-            <img class="img-responsive" src="images/profilePicture.jpg" />
-        </div>
-        <div class="profile-picture">
-            <img class="img-responsive circle account-photo" src="images/profilePicture.jpg" />
-        </div>
-    </div>
+    <ProfilePicture/>
     <div class="menu list-group list-group-flush">
         <NavLink class="list-group-item list-group-item-action bg-light" href="/" Match="NavLinkMatch.All">
             <span class="oi oi-home" aria-hidden="true"></span> Home
@@ -21,7 +14,7 @@
         <NavLink class="list-group-item list-group-item-action bg-light" href="/employeeedit">
             <span class="oi oi-list-rich" aria-hidden="true"></span> Add new employee
         </NavLink>
-    </div>
+    </div>  
 </div>
 
 @code {

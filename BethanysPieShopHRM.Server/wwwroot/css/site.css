@@ -204,3 +204,16 @@ nav {
         background-color: #a593c2 !important;
         border-color: #a593c2 !important;
     }
+
+input[type='checkbox'] {
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    background: white;
+    border-radius: 5px;
+    border: 2px solid #555;
+}
+
+    input[type='checkbox']:checked {
+        background: #abd;
+    }

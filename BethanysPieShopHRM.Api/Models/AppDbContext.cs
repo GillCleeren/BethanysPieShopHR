@@ -14,6 +14,8 @@ namespace BethanysPieShopHRM.Api.Models
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<JobCategory> JobCategories { get; set; }
+        public DbSet<Benefit> Benefits { get; set; }
+        public DbSet<EmployeeBenefit> EmployeeBenefits { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,6 +41,12 @@ namespace BethanysPieShopHRM.Api.Models
             modelBuilder.Entity<JobCategory>().HasData(new JobCategory(){JobCategoryId = 7, JobCategoryName = "IT"});
             modelBuilder.Entity<JobCategory>().HasData(new JobCategory(){JobCategoryId = 8, JobCategoryName = "Cleaning"});
             modelBuilder.Entity<JobCategory>().HasData(new JobCategory(){JobCategoryId = 9, JobCategoryName = "Bakery"});
+
+            modelBuilder.Entity<Benefit>().HasData(new Benefit() { BenefitId = 1, Description = "Health Insurance" });
+            modelBuilder.Entity<Benefit>().HasData(new Benefit() { BenefitId = 2, Description = "Paid Time Off" });
+            modelBuilder.Entity<Benefit>().HasData(new Benefit() { BenefitId = 3, Description = "Wellness" });
+            modelBuilder.Entity<Benefit>().HasData(new Benefit() { BenefitId = 4, Description = "Education" });
+            modelBuilder.Entity<Benefit>().HasData(new Benefit() { BenefitId = 5, Description = "Store Discount" });
 
             modelBuilder.Entity<Employee>().HasData(new Employee
             {
