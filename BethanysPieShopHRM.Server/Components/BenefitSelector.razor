@@ -17,7 +17,7 @@ else
                 </tr>
                 @foreach (var benefit in Benefits)
                 {
-                    <tr>
+                    <tr @key="benefit">
                         <td>
                             <input type="checkbox" checked="@benefit.Selected"
                                    @onchange="e => CheckBoxChanged(e, benefit)" />

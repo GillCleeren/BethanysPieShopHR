@@ -1,7 +1,7 @@
 ﻿@inherits EmployeeRowBase
 
 @{
-    var cssClass = Employee.PremiumBenefits ? "table-success" : "";
+    var cssClass = Employee.HasPremiumBenefits ? "table-success" : "";
 }
 
 <tr class="@cssClass">

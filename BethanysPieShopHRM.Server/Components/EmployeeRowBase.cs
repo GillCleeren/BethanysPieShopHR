@@ -10,7 +10,7 @@ namespace BethanysPieShopHRM.Server.Components
 
         public void PremiumToggle(bool premiumBenefit)
         {
-            Employee.PremiumBenefits = premiumBenefit;
+            Employee.HasPremiumBenefits = premiumBenefit;
         }
     }
 }

@@ -64,7 +64,7 @@ namespace BethanysPieShopHRM.Shared
                 Comment = Comment,
                 ExitDate = ExitDate,
                 JoinedDate = JoinedDate,
-                PremiumBenefits = EmployeeBenefits != null 
+                HasPremiumBenefits = EmployeeBenefits != null 
                     && EmployeeBenefits.Any(b => b.Benefit.Premium)
             };
         }

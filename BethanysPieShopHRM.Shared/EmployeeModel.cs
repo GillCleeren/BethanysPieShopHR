@@ -42,7 +42,7 @@ namespace BethanysPieShopHRM.Shared
         public double Longitude { get; set; }
 
         public bool ShowBenefits { get; set; }
-        public bool PremiumBenefits { get; set; }
+        public bool HasPremiumBenefits { get; set; }
 
         public void UpdateEntity(Employee entity)
         {
