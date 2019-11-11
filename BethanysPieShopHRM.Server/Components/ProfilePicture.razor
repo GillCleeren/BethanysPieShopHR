@@ -4,11 +4,15 @@
     </div>
     <div class="profile-picture">
         <img class="img-responsive @CssClass account-photo" src="images/profilePicture.jpg" @onclick="@(e => CssClass = CssClass == "circle" ? null : "circle")" />
-    </div>
+        <div class="mt-2 text-center">@ChildContent</div>
+    </div>  
 </div>
 
 @code {
     public string CssClass { get; set; } = "circle";
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
 
     public void ProfileClick()
     {
