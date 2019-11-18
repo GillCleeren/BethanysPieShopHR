@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Components;
 
 namespace BethanysPieShopHRM.Server.Components
 {
-    public class BenefitSelectorBase: ComponentBase
+    public class BenefitSelectorBase : ComponentBase
     {
+        protected bool SaveButtonDisabled { get; set; } = true;
+        protected IEnumerable<BenefitModel> Benefits { get; set; }
+
         [Parameter]
         public int EmployeeId { get; set; }
-
-        public bool SaveButtonDisabled { get; set; } = true;
-        public IEnumerable<BenefitModel> Benefits { get; set; }
 
         [Parameter]
         public EventCallback<bool> OnPremiumToggle { get; set; }
