@@ -16,19 +16,19 @@ namespace BethanysPieShopHRM.Server.Services
             _httpClient = httpClient;
         }
 
-        public async Task<IEnumerable<BenefitModel>> GetForEmployee(int id)
+        public async Task<IEnumerable<BenefitModel>> GetForEmployee(EmployeeModel employee)
         {
             return await JsonSerializer.DeserializeAsync<List<BenefitModel>>
-                (await _httpClient.GetStreamAsync($"api/benefit/{id}"), 
+                (await _httpClient.GetStreamAsync($"api/benefit/{employee.EmployeeId}"), 
                 new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
-        public async Task UpdateForEmployee(int employeeId, IEnumerable<BenefitModel> benefits)
+        public async Task UpdateForEmployee(EmployeeModel employee, IEnumerable<BenefitModel> benefits)
         {
             var benefitJson =
                 new StringContent(JsonSerializer.Serialize(benefits), Encoding.UTF8, "application/json");
 
-            await _httpClient.PostAsync($"api/benefit/{employeeId}", benefitJson);
+            await _httpClient.PostAsync($"api/benefit/{employee.EmployeeId}", benefitJson);
         }
     }
 }

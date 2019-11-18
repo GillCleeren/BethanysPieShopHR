@@ -14,7 +14,7 @@ namespace BethanysPieShopHRM.Server.Components
         protected IEnumerable<BenefitModel> Benefits { get; set; }
 
         [Parameter]
-        public int EmployeeId { get; set; }
+        public EmployeeModel Employee { get; set; }
 
         [Parameter]
         public EventCallback<bool> OnPremiumToggle { get; set; }
@@ -24,7 +24,7 @@ namespace BethanysPieShopHRM.Server.Components
 
         protected async override Task OnInitializedAsync()
         {
-            Benefits = await BenefitDataService.GetForEmployee(EmployeeId);     
+            Benefits = await BenefitDataService.GetForEmployee(Employee);     
         }
 
         public async Task CheckBoxChanged(ChangeEventArgs e, BenefitModel benefit)
@@ -43,7 +43,7 @@ namespace BethanysPieShopHRM.Server.Components
 
         public void SaveClick()
         {
-            BenefitDataService.UpdateForEmployee(EmployeeId, Benefits);
+            BenefitDataService.UpdateForEmployee(Employee, Benefits);
             SaveButtonDisabled = true;
         }
     }
