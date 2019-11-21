@@ -1,0 +1,15 @@
+﻿<input id="useAttributesDict"
+       @attributes="InputAttributes" some="bla" />
+
+
+@code {
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> InputAttributes { get; set; } =
+        new Dictionary<string, object>()
+        {
+            { "maxlength", "10" },
+            { "placeholder", "Input placeholder text" },
+            { "required", "required" },
+            { "size", "50" }
+        };
+}

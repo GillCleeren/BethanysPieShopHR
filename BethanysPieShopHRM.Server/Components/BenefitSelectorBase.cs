@@ -27,6 +27,7 @@ namespace BethanysPieShopHRM.Server.Components
             Benefits = await BenefitDataService.GetForEmployee(Employee);     
         }
 
+
         public async Task CheckBoxChanged(ChangeEventArgs e, BenefitModel benefit)
         {
             var newValue = (bool)e.Value;

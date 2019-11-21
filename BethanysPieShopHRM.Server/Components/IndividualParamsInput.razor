@@ -1,0 +1,19 @@
+﻿<input id="useIndividualParams"
+       maxlength="@Maxlength"
+       placeholder="@Placeholder"
+       required="@Required"
+       size="@Size" />
+
+@code {
+    [Parameter]
+    public string Maxlength { get; set; } = "10";
+
+    [Parameter]
+    public string Placeholder { get; set; } = "Input placeholder text";
+
+    [Parameter]
+    public string Required { get; set; } = "required";
+
+    [Parameter]
+    public string Size { get; set; } = "50";
+}

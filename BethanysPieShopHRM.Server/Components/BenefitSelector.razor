@@ -26,7 +26,7 @@ else
 
                         @if (benefit.Selected)
                         {
-                            <td>@benefit.StartDate?.ToString("MM/dd/yyyy")</td>
+                            <td>@benefit.StartDate</td>
                             <td><input type="date" @bind="@benefit.EndDate" /></td>
                         }
                         else

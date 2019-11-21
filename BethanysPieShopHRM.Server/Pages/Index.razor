@@ -1,7 +1,30 @@
 ﻿@page "/"
 
+    <PasswordField @bind-Password="password" />
+<button @onclick="buttonClick">Go</button>
+
 <h1 class="page-title">Welcome to Bethany's Pie Shop HRM!</h1>
 <br />
 <h3>Using this application, you can manage our wonderful staff working for us all over the world, bringing people the best pies ever!</h3>
 
 <ProfilePicture>Have fun using the app</ProfilePicture>
+
+@code {
+    private string _password = "Initiial";
+    private string password
+    {
+        get
+        {
+            return _password;
+        }
+        set
+        {
+            _password = value;
+        }
+    }
+
+    private void buttonClick()
+    {
+        password = "blabla";
+    }
+}
