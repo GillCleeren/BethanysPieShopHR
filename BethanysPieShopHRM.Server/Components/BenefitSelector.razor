@@ -8,37 +8,33 @@ else
 {
     <div class="row">
         <div class="col-md-8">
-            <table class="table table-sm">
-                <tr>
-                    <th class="w-auto"></th>
+            <TableTemplate Items="Benefits" IsSmall="true">
+                <TableHeader>
                     <th class="w-auto">Benefit</th>
                     <th class="w-25">Start date</th>
                     <th class="w-25">End date</th>
-                </tr>
-                @foreach (var benefit in Benefits)
-                {
-                    <tr @key="benefit">
-                        <td>
-                            <input type="checkbox" checked="@benefit.Selected"
-                                   @onchange="e => CheckBoxChanged(e, benefit)" />
-                        </td>
-                        <td>@benefit.Description</td>
+                </TableHeader>
+                <RowTemplate>
+                    <td>
+                        <input type="checkbox" checked="@context.Selected"
+                               @onchange="e => CheckBoxChanged(e, context)" />
+                    </td>
+                    <td>@context.Description</td>
 
-                        @if (benefit.Selected)
-                        {
-                            <td>@benefit.StartDate</td>
-                            <td>
-                                <DateField @bind-Date="benefit.EndDate" />
-                            </td>
-                        }
-                        else
-                        {
-                            <td></td>
-                            <td></td>
-                        }
-                    </tr>
-                }
-            </table>
+                    @if (context.Selected)
+                    {
+                        <td>@context.StartDate</td>
+                        <td>
+                            <DateField @bind-Date="context.EndDate" />
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                        <td></td>
+                    }
+                </RowTemplate>
+            </TableTemplate>
         </div>
         <div class="col-md-4 mt-1">
             <button class="btn btn-primary" disabled="@SaveButtonDisabled" 

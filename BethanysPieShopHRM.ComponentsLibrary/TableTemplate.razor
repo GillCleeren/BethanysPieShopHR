@@ -1,0 +1,46 @@
+﻿@using BethanysPieShopHRM.Shared;
+
+@{
+    var smallClass = IsSmall ? "table-sm" : "";
+}
+
+@typeparam TItem
+
+<table class="table @smallClass">
+    <thead>
+        <tr>
+            <th class="w-auto">
+                <button class="btn btn-sm" @onclick="ToggleSmall">
+                    <i class="fas fa-arrows-alt-v"></i>
+                </button>
+            </th>
+            @TableHeader
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Items)
+        {
+            <tr>@RowTemplate(item)</tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public bool IsSmall { get; set; }
+
+    [Parameter]
+    public RenderFragment TableHeader { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem> RowTemplate { get; set; }
+
+    [Parameter]
+    public IEnumerable<TItem> Items { get; set; }
+
+    private void ToggleSmall()
+    {
+        IsSmall = !IsSmall;
+    }
+}

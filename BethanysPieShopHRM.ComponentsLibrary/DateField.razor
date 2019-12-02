@@ -1,7 +1,4 @@
-﻿@using Microsoft.AspNetCore.Components.Web
-
-
-<input type="date" value="@Date?.ToString(dateFormatString)" 
+﻿<input type="date" value="@Date?.ToString(dateFormatString)" 
        format-value="@dateFormatString" @onchange="OnDateChanged" />
 
 <button class="btn btn-sm" @onclick="Revert">
@@ -22,7 +19,8 @@
     {
         if (Date != origDate)
         {
-            await DateChanged.InvokeAsync(origDate);
+            Date = origDate;
+            await DateChanged.InvokeAsync(Date);
         }
     }
 
@@ -30,7 +28,8 @@
     {
         var date = (string)e.Value;
         var newDate = DateTime.Parse(date);
-        await DateChanged.InvokeAsync(newDate);
+        Date = newDate;
+        await DateChanged.InvokeAsync(Date);
     }
 
     protected override void OnInitialized()
