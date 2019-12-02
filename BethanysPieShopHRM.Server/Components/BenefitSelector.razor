@@ -22,23 +22,26 @@ else
                     <td>@context.Description</td>
 
                     @if (context.Selected)
-                    {
+                        {
                         <td>@context.StartDate</td>
                         <td>
                             <DateField @bind-Date="context.EndDate" />
                         </td>
-                    }
-                    else
-                    {
+                        }
+                        else
+                        {
                         <td></td>
                         <td></td>
-                    }
+                        }
+                    /**/
                 </RowTemplate>
             </TableTemplate>
         </div>
         <div class="col-md-4 mt-1">
-            <button class="btn btn-primary" disabled="@SaveButtonDisabled" 
-                    @onclick="SaveClick">Save</button>
+            <button class="btn btn-primary" disabled="@SaveButtonDisabled"
+                    @onclick="SaveClick">
+                Save
+            </button>
         </div>
     </div>
 }

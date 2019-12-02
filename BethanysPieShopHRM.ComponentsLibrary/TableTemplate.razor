@@ -21,7 +21,9 @@
     <tbody>
         @foreach (var item in Items)
         {
-            <tr>@RowTemplate(item)</tr>
+            <tr @key="item">
+                @RowTemplate(item)
+            </tr>
         }
     </tbody>
 </table>
