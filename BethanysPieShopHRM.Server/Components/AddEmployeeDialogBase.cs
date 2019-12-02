@@ -8,7 +8,10 @@ namespace BethanysPieShopHRM.Server.Components
 {
     public class AddEmployeeDialogBase : ComponentBase
     {
-        public bool ShowDialog { get; set; }
+        protected bool ShowDialog { get; set; }
+
+        [CascadingParameter]
+        public string BtnClass { get; set; }
 
         public EmployeeModel Employee { get; set; } = new EmployeeModel { CountryId = 1, JobCategoryId = 1, BirthDate = DateTime.Now, JoinedDate = DateTime.Now };
 
@@ -19,12 +22,10 @@ namespace BethanysPieShopHRM.Server.Components
         public IEmployeeDataService EmployeeDataService { get; set; }
 
       
-
         public void Show()
         {
             ResetDialog();
             ShowDialog = true;
-            StateHasChanged();
         }
 
         private void ResetDialog()
@@ -35,7 +36,6 @@ namespace BethanysPieShopHRM.Server.Components
         public void Close()
         {
             ShowDialog = false;
-            StateHasChanged();
         }
 
         protected async Task HandleValidSubmit()

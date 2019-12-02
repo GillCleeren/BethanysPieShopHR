@@ -3,9 +3,11 @@
         <img class="img-responsive" src="images/profilePicture.jpg" />
     </div>
     <div class="profile-picture">
-        <img class="img-responsive @cssClass account-photo" src="images/profilePicture.jpg" @onclick="@(e => cssClass = cssClass == "circle" ? null : "circle")" />
+        <img class="img-responsive @cssClass account-photo" 
+             src="images/profilePicture.jpg" 
+             @onclick="@(e => cssClass = cssClass == "circle" ? null : "circle")" />
         <div class="mt-2 text-center">@ChildContent</div>
-    </div>  
+    </div>
 </div>
 
 @code {

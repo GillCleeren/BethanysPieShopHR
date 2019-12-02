@@ -36,7 +36,7 @@
                             <InputText id="email" class="form-control" @bind-Value="@Employee.Email" placeholder="Enter email"></InputText>
                             <ValidationMessage For="@(() => Employee.Email)" />
                         </div>
-                        <button type="submit" class="btn btn-primary">Save employee</button>
+                        <button type="submit" class="btn @BtnClass">Save employee</button>
                         <a class="btn btn-outline-primary" @onclick="@Close">Close</a>
                     </EditForm>
 
