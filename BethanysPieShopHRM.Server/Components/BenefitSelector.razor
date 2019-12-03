@@ -22,17 +22,18 @@ else
                     <td>@context.Description</td>
 
                     @if (context.Selected)
-                    {
+                        {
                         <td>@context.StartDate</td>
                         <td>
                             <DateField @bind-Date="context.EndDate" />
                         </td>
-                    }
-                    else
-                    {
+                        }
+                        else
+                        {
                         <td></td>
                         <td></td>
-                    }
+                        }
+                    /**/
                 </RowTemplate>
             </TableTemplate>
         </div>

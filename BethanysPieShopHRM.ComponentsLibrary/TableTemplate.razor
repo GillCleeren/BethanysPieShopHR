@@ -30,9 +30,6 @@
 
 @code {
     [Parameter]
-    public bool IsSmall { get; set; }
-
-    [Parameter]
     public RenderFragment TableHeader { get; set; }
 
     [Parameter]
@@ -40,6 +37,9 @@
 
     [Parameter]
     public IEnumerable<TItem> Items { get; set; }
+
+    [Parameter]
+    public bool IsSmall { get; set; }
 
     private void ToggleSmall()
     {
