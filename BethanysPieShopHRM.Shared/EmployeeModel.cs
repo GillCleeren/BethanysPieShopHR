@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BethanysPieShopHRM.Shared
 {
-    public class EmployeeModel: IHighLightRow
+    public class EmployeeModel: ITableModel
     {
         public int EmployeeId { get; set; }
         [Required]
@@ -49,6 +49,14 @@ namespace BethanysPieShopHRM.Shared
             {
                 return HasPremiumBenefits;
             } 
+        }
+
+        public bool ShowChildTemplate
+        {
+            get
+            {
+                return ShowBenefits;
+            }
         }
 
         public void UpdateEntity(Employee entity)

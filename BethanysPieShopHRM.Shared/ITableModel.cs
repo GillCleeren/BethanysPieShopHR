@@ -1,7 +1,8 @@
 ﻿namespace BethanysPieShopHRM.Shared
 {
-    public interface IHighLightRow
+    public interface ITableModel
     {
         bool HightLightRow { get; }
+        bool ShowChildTemplate { get; }
     }
 }

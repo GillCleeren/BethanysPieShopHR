@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 namespace BethanysPieShopHRM.ComponentsLibrary
 {
     public partial class TableTemplate<TItem>
-        where TItem: IHighLightRow
+        where TItem: ITableModel
     {
         [Parameter]
         public RenderFragment TableHeader { get; set; }

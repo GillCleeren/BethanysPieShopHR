@@ -24,7 +24,8 @@
             <tr @key="item" class="@rowClass">
                 @RowTemplate(item)
             </tr>
-            @if (ChildTemplate != null)
+
+            @if (item.ShowChildTemplate)
             { 
                 @ChildTemplate(item)
             }
