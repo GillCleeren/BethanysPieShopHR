@@ -1,4 +1,5 @@
 ﻿@inherits BenefitSelectorBase
+@using BethanysPieShopHRM.Shared
 
 @if (Benefits == null)
 {
@@ -8,7 +9,7 @@ else
 {
     <div class="row">
         <div class="col-md-8">
-            <TableTemplate Items="Benefits" IsSmall="true">
+            <TableTemplate Items="Benefits" IsSmall="true" TItem="BenefitModel">
                 <TableHeader>
                     <th class="w-auto">Benefit</th>
                     <th class="w-25">Start date</th>
@@ -33,7 +34,6 @@ else
                         <td></td>
                         <td></td>
                         }
-                    /**/
                 </RowTemplate>
             </TableTemplate>
         </div>
