@@ -2,7 +2,7 @@
 
 namespace BethanysPieShopHRM.Shared
 {
-    public class BenefitModel
+    public class BenefitModel: IHighLightRow
     {
         public int BenefitId { get; set; }
 
@@ -11,5 +11,11 @@ namespace BethanysPieShopHRM.Shared
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public bool Premium { get; set; }
+        public bool HightLightRow 
+        { 
+            get { 
+                return Premium;
+            } 
+        }
     }
 }

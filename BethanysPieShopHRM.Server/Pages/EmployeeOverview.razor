@@ -1,5 +1,6 @@
 ﻿@page "/employeeoverview"
 @inherits EmployeeOverviewBase
+@using BethanysPieShopHRM.Shared
 
 <h1 class="page-title">All employees</h1>
 
@@ -9,23 +10,41 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Employee ID</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var employee in Employees)
-            {
-                <EmployeeRow Employee="@employee"></EmployeeRow>
-            }
-        </tbody>
-    </table>
+    <TableTemplate Items="Employees" TItem="EmployeeModel" Context="Employee">
+        <TableHeader>
+            <th>Employee ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th></th>
+        </TableHeader>
+        <RowTemplate>
+            <td><img src="@($"https://gillcleerenpluralsight.blob.core.windows.net/person/{Employee.EmployeeId}-small.jpg")" class="rounded-circle" /></td>
+            <td>@Employee.EmployeeId</td>
+            <td>@Employee.FirstName</td>
+            <td>@Employee.LastName</td>
+            <td>
+                <a href="@($"Employeedetail/{Employee.EmployeeId}")" class="btn btn-primary table-btn">
+                    <i class="fas fa-info-circle"></i>
+                </a>
+                <a href="@($"Employeeedit/{Employee.EmployeeId}")" class="btn btn-primary table-btn">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a href="" class="btn btn-primary table-btn" @onclick="e => Employee.ShowBenefits = !Employee.ShowBenefits">
+                    <i class="fas fa-thumbs-up"></i>
+                </a>
+            </td>
+        </RowTemplate>
+        <ChildTemplate>
+            @if (Employee.ShowBenefits)
+                {
+                <tr>
+                    <td colspan="5">
+                        <BenefitSelector Employee="Employee" OnPremiumToggle="@(b => Employee.HasPremiumBenefits = b)" />
+                    </td>
+                </tr>
+                }
+        </ChildTemplate>
+    </TableTemplate>
 }
 
 <button @onclick="QuickAddEmployee" class="btn btn-dark table-btn quick-add-btn">&nbsp;&nbsp;+&nbsp;&nbsp;</button>
