@@ -35,14 +35,9 @@ else
             </td>
         </RowTemplate>
         <ChildTemplate>
-            @if (Employee.ShowBenefits)
-            {
-                <tr>
-                    <td colspan="5">
-                        <BenefitSelector Employee="Employee" OnPremiumToggle="@(b => Employee.HasPremiumBenefits = b)" />
-                    </td>
-                </tr>
-            }
+            <td colspan="5">
+                <BenefitSelector Employee="Employee" OnPremiumToggle="@(b => Employee.HasPremiumBenefits = b)" />
+            </td>
         </ChildTemplate>
     </TableTemplate>
 }
