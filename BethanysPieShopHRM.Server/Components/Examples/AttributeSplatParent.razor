@@ -1,0 +1,12 @@
+﻿@{
+ var inputAttributes = new Dictionary<string, object>()
+        {
+            { "maxlength", "10" },
+            { "placeholder", "Input placeholder text" },
+            { "required", "required" },
+            { "size", "50" }
+        };   
+}
+
+
+<AttributeSplatInput type="date" InputAttributes="inputAttributes"></AttributeSplatInput>

@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
 
 
-<input type="date" value="@Date?.ToString(dateFormatString)" 
+<input type="date" value="@Date?.ToString(dateFormatString)"
        format-value="@dateFormatString" @onchange="OnDateChanged" />
 
 <button class="btn btn-sm" @onclick="Revert">
@@ -22,6 +22,7 @@
     {
         if (Date != origDate)
         {
+            Date = origDate;
             await DateChanged.InvokeAsync(origDate);
         }
     }
@@ -30,6 +31,7 @@
     {
         var date = (string)e.Value;
         var newDate = DateTime.Parse(date);
+        Date = newDate;
         await DateChanged.InvokeAsync(newDate);
     }
 
