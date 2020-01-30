@@ -43,7 +43,7 @@ namespace BethanysPieShopHRM.Shared
 
         public bool ShowBenefits { get; set; }
         public bool HasPremiumBenefits { get; set; }
-        public bool HightLightRow 
+        public bool HighLightRow 
         { 
             get 
             {

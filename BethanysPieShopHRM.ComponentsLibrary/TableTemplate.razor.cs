@@ -21,10 +21,5 @@ namespace BethanysPieShopHRM.ComponentsLibrary
 
         [Parameter]
         public bool IsSmall { get; set; }
-
-        private void ToggleSmall()
-        {
-            IsSmall = !IsSmall;
-        }
     }
 }

@@ -8,7 +8,7 @@
     <thead>
         <tr>
             <th class="w-auto">
-                <button class="btn btn-sm" @onclick="ToggleSmall">
+                <button class="btn btn-sm" @onclick="e => IsSmall = !IsSmall">
                     <i class="fas fa-arrows-alt-v"></i>
                 </button>
             </th>
@@ -19,7 +19,7 @@
     <tbody>
         @foreach (var item in Items)
         {
-            var rowClass = item.HightLightRow ? "table-success" : "";
+            var rowClass = item.HighLightRow ? "table-success" : "";
 
             <tr @key="item" class="@rowClass">
                 @RowTemplate(item)

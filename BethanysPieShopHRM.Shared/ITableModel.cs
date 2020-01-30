@@ -2,7 +2,7 @@
 {
     public interface ITableModel
     {
-        bool HightLightRow { get; }
+        bool HighLightRow { get; }
         bool ShowChildTemplate { get; }
     }
 }

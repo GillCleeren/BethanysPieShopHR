@@ -12,7 +12,7 @@ namespace BethanysPieShopHRM.Shared
         public DateTime? EndDate { get; set; }
         public bool Premium { get; set; }
 
-        public bool HightLightRow 
+        public bool HighLightRow 
         { 
             get 
             { 
