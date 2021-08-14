@@ -1,4 +1,5 @@
 ﻿@page "/employeeoverview"
+@using Syncfusion.Blazor.Grids
 @inherits EmployeeOverviewBase
 
 <h1 class="page-title">All employees</h1>
@@ -39,6 +40,36 @@ else
             }
         </tbody>
     </table>
+
+    <SfGrid DataSource="Employees">
+        <GridColumns>
+            <GridColumn Field="@nameof(EmployeeDetail.EmployeeId)" IsPrimaryKey="true"
+                        HeaderText="Employee Id"
+                        TextAlign="TextAlign.Left"
+                        Width="120"
+                        ValidationRules="@(new ValidationRules{ Required=true, Number=true})">
+            </GridColumn>
+
+            <GridColumn Field="@nameof(EmployeeDetail.Employee.FirstName)"
+                        HeaderText="First Name"
+                        TextAlign="TextAlign.Left"
+                        Width="150">
+            </GridColumn>
+
+            <GridColumn Field="@nameof(EmployeeDetail.Employee.LastName)"
+                        HeaderText="Last Name"
+                        TextAlign="TextAlign.Left"
+                        Width="150">
+            </GridColumn>
+
+            <GridColumn Field="@nameof(EmployeeDetail.Employee.Email)"
+                        HeaderText="Last Name"
+                        TextAlign="TextAlign.Left"
+                        Width="150">
+            </GridColumn>
+
+        </GridColumns>
+    </SfGrid>
 }
 
 <button @onclick="@QuickAddEmployee" class="btn btn-dark table-btn quick-add-btn">&nbsp;&nbsp;+&nbsp;&nbsp;</button>
